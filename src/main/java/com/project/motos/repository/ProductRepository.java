@@ -8,4 +8,7 @@ import java.io.Serializable;
 
 @Repository("product_repository")
 public interface ProductRepository extends JpaRepository<Product,Serializable> {
+    abstract Product findByName(String name);
+
+    abstract Product findByIdProduct(Long id);
 }

@@ -13,7 +13,7 @@ public class Bill implements Serializable {
     @Id
     @Column(name = "id_bill")
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long id_bill;
+    private Long idBill;
 
     @Column(name = "date")
     private Date date;
@@ -41,7 +41,7 @@ public class Bill implements Serializable {
     }
 
     public Long getId_bill() {
-        return id_bill;
+        return idBill;
     }
 
     public Date getDate() {

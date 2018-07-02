@@ -10,14 +10,14 @@ public class Detail implements Serializable {
     @Id
     @Column(name = "id_detail")
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long id_detail;
+    private Long idDetail;
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_bill_detail")
     private Bill bill;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(optional = true,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_product_detail")
     private Product product;
 
@@ -35,8 +35,8 @@ public class Detail implements Serializable {
         this.price = price;
     }
 
-    public Long getId_detail() {
-        return id_detail;
+    public Long getIDetail() {
+        return idDetail;
     }
 
     public Bill getBill() {

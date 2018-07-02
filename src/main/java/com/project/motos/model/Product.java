@@ -12,7 +12,7 @@ public class Product implements Serializable {
     @Id
     @Column(name = "id_product")
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long id_product;
+    private Long idProduct;
 
     @Column(name = "name")
     private String name;
@@ -23,7 +23,7 @@ public class Product implements Serializable {
     @Column(name = "stock")
     private Integer stock;
 
-    @OneToMany(mappedBy = "id_product_detail")
+    @OneToMany(mappedBy = "product")
     private Set<Detail> details;
 
     public Product(String name, Integer price, Integer stock) {
@@ -31,6 +31,8 @@ public class Product implements Serializable {
         this.price = price;
         this.stock = stock;
     }
+
+    public Product(){}
 
     public Set<Detail> getDetails() {
         return details;
@@ -40,8 +42,8 @@ public class Product implements Serializable {
         this.details = details;
     }
 
-    public Long getId_product() {
-        return id_product;
+    public Long getIdProduct() {
+        return idProduct;
     }
 
     public String getName() {
