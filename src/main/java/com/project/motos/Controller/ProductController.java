@@ -40,8 +40,19 @@ public class ProductController {
 
     //GET BY ID
     @RequestMapping(value = "/products/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
-    public ResponseEntity<Product> getCourseByIdCourse(@PathVariable("id") Long id){
+    public ResponseEntity<Product> getProductById(@PathVariable("id") Long id){
         Product product = product_repository.findByIdProduct(id);
+        if (product == null) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            // You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<Product>(product, HttpStatus.OK);
+    }
+
+    //GET BY NAME
+    @RequestMapping(value = "/products/{name}", method = RequestMethod.GET, headers = "Accept=application/json")
+    public ResponseEntity<Product> getProductByName(@PathVariable("name") String name){
+        Product product = product_repository.findByName(name);
         if (product == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
             // You many decide to return HttpStatus.NOT_FOUND
