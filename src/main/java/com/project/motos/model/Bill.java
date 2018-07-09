@@ -16,7 +16,7 @@ public class Bill implements Serializable {
     private Long idBill;
 
     @Column(name = "date")
-    private Date date;
+    private String date;
 
     @Column(name = "client")
     private String client;
@@ -27,10 +27,12 @@ public class Bill implements Serializable {
 
 
 
-    public Bill(Date date, String client) {
-        this.date = date;
+    public Bill( String client) {
+        this.date = null;
         this.client = client;
     }
+
+    public Bill(){}
 
     public Set<Detail> getDetails() {
         return details;
@@ -40,15 +42,15 @@ public class Bill implements Serializable {
         this.details = details;
     }
 
-    public Long getId_bill() {
+    public Long getIdBill() {
         return idBill;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

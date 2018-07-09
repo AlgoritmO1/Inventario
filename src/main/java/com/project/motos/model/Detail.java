@@ -1,10 +1,13 @@
 package com.project.motos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "DETAIL")
+@IdClass(Detail.class)
 public class Detail implements Serializable {
 
     @Id
@@ -15,6 +18,7 @@ public class Detail implements Serializable {
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_bill_detail")
+    @JsonIgnore
     private Bill bill;
 
     @ManyToOne(optional = true,fetch = FetchType.EAGER)
@@ -34,6 +38,8 @@ public class Detail implements Serializable {
         this.quantity = quantity;
         this.price = price;
     }
+
+    public Detail(){}
 
     public Long getIDetail() {
         return idDetail;

@@ -25,7 +25,7 @@ public class UserController {
     @Autowired
     UserRepository user_repository;
     
-    //POST
+    //POST (CREATE)
     @RequestMapping(value = "/users", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
         if (user_repository.findByName(user.getName()) != null) {

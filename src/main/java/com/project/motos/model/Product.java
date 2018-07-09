@@ -1,5 +1,7 @@
 package com.project.motos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -24,6 +26,7 @@ public class Product implements Serializable {
     private Integer stock;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private Set<Detail> details;
 
     public Product(String name, Integer price, Integer stock) {
